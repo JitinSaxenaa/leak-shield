@@ -37,7 +37,7 @@ export default function Logo({ size = 'full', className = '' }: LogoProps) {
       }}
     >
       <div className="flex items-center" style={{ gap: `12px` }}>
-        <CipherOwlSvg size={s.svg} color="#0EA5E9" />
+        <CipherOwlSvg size={s.svg} color="#0EA5E9" id={size === 'nav' ? 'nav-logo-owl' : undefined} />
         
         {!isMobile && (
           <div className="flex flex-col">
@@ -57,15 +57,16 @@ export default function Logo({ size = 'full', className = '' }: LogoProps) {
   );
 }
 
-function CipherOwlSvg({ size, color }: { size: number; color: string }) {
+function CipherOwlSvg({ size, color, id }: { size: number; color: string; id?: string }) {
   return (
-    <svg 
-      width={size} 
-      height={size} 
-      viewBox="-4 -4 72 72" 
-      fill="none" 
+    <svg
+      id={id}
+      width={size}
+      height={size}
+      viewBox="-4 -4 72 72"
+      fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="drop-shadow-[0_0_8px_rgba(14,165,233,0.3)]"
+      style={{ filter: 'drop-shadow(0 0 8px rgba(14,165,233,0.65)) drop-shadow(0 0 22px rgba(14,165,233,0.28))' }}
     >
       {/* Outer body */}
       <path 
